@@ -3,7 +3,7 @@ using SanaWebShop.Core.Models;
 
 namespace SanaWebShop.Persistence
 {
-    public class SanaWebShopDbContext : DbContext
+    public class SanaWebShopDbContext : DbContext, ISanaWebShopDbContext
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }

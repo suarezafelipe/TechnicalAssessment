@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanaWebShop.Core", "SanaWeb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanaWebShop.Persistence", "SanaWebShop.Persistence\SanaWebShop.Persistence.csproj", "{ED1DB870-C65C-48B9-BDDB-C62CDA2289AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanaWebShop.Utilities", "SanaWebShop.Utilities\SanaWebShop.Utilities.csproj", "{638858FB-ABCA-4B26-AF77-0E6B7ECEE346}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{ED1DB870-C65C-48B9-BDDB-C62CDA2289AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED1DB870-C65C-48B9-BDDB-C62CDA2289AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED1DB870-C65C-48B9-BDDB-C62CDA2289AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{638858FB-ABCA-4B26-AF77-0E6B7ECEE346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{638858FB-ABCA-4B26-AF77-0E6B7ECEE346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{638858FB-ABCA-4B26-AF77-0E6B7ECEE346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{638858FB-ABCA-4B26-AF77-0E6B7ECEE346}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

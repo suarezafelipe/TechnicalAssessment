@@ -1,5 +1,18 @@
-﻿@{
+﻿@using System.Runtime.InteropServices.ComTypes
+@model List<SanaWebShop.Core.Models.Product>
+
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <h2>Product Listing and Creation</h2>
+
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>Product #: @product.ProductNumber</li>
+        <li>Name: @product.Title</li>
+        <li>Price: @product.Price </li>
+    }
+</ul>

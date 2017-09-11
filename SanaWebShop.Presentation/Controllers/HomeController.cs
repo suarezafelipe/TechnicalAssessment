@@ -1,30 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using SanaWebShop.Core.Models;
+using SanaWebShop.Core.RepositoriesInterfaces;
+using SanaWebShop.Persistence;
 
 namespace SanaWebShop.Presentation.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IProductRepository _repository;
+
+        public HomeController(IProductRepository repository, ISanaWebShopDbContext context)
+        {
+            _repository = repository;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            List<Product> products = _repository.GetAllProducts();
+            return View(products);
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }
