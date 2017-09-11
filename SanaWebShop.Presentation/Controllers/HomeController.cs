@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using SanaWebShop.Core.Models;
 using SanaWebShop.Core.RepositoriesInterfaces;
+using SanaWebShop.Core.Services;
 using SanaWebShop.Persistence;
 
 namespace SanaWebShop.Presentation.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProductRepository _repository;
+        private readonly IProductService _productService;
 
-        public HomeController(IProductRepository repository, ISanaWebShopDbContext context)
+        public HomeController(IProductService productService)
         {
-            _repository = repository;
+            _productService = productService;
         }
 
         public ActionResult Index()
         {
-            List<Product> products = _repository.GetAllProducts();
+            List<Product> products = _productService.GetAllProducts();
             return View(products);
         }
         
