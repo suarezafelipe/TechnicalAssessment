@@ -32,12 +32,15 @@ namespace SanaWebShop.Presentation.Controllers
         [HttpPost]
         public ActionResult CreateProduct(ProductViewModel product)
         {
-            var success = _productService.CreateProduct(new Product
+            bool success = _productService.CreateProduct(new Product
             {
                 Price = product.Price,
                 ProductNumber = product.ProductNumber,
                 Title = product.Name
             });
+
+            if (!success)
+                return HttpNotFound();
             
             return View();
         }

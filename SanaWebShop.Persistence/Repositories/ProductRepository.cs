@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using SanaWebShop.Core.Models;
@@ -23,10 +24,25 @@ namespace SanaWebShop.Persistence.Repositories
             return query;
         }
 
+        /// <summary>
+        /// Adds the product to the database. 
+        /// Returns true if successful, false if there is any exception
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         public bool CreateProduct(Product product)
         {
-            _context.Products.Add(product);
-            return true;
+            try
+            {
+                _context.Products.Add(product);
+                return true;
+            }
+            catch (Exception e)
+            {
+                // Write exception lo LOG
+                return false;
+
+            }
         }
     }
 }

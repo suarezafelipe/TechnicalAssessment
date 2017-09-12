@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SanaWebShop.Core.Models;
-using SanaWebShop.Core.RepositoriesInterfaces;
 
 namespace SanaWebShop.Core.Services
 {
@@ -13,23 +13,36 @@ namespace SanaWebShop.Core.Services
             _unitOfWork = unitOfWork;
         }
 
+        /// <summary>
+        /// Returns the list of all products in the DB.
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetAllProducts()
         {
             return _unitOfWork.Products.GetAllProducts();
         }
 
+        /// <summary>
+        /// Receives a product object, validates the data, and tries to add it to the DB.
+        /// Returns true if the product was created successfully, false otherwise
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         public bool CreateProduct(Product product)
         {
-            bool backEndValidations = true;
-
-            if (!backEndValidations)
+            if (string.IsNullOrEmpty(product.ProductNumber)
+                || string.IsNullOrEmpty(product.Title))
                 return false;
+            
+            if (Math.Abs(product.Price) < 0.0001 || product.Price < 0)
+                return false;
+              
+            bool success = _unitOfWork.Products.CreateProduct(product);
 
-            _unitOfWork.Products.CreateProduct(product);
+            if (!success) return false;
+
             _unitOfWork.Complete();
-
             return true;
-
         }
     }
 }
