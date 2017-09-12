@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using SanaWebShop.Core.Models;
 
-namespace SanaWebShop.Persistence
+namespace SanaWebShop.Persistence.ApplicationDbContext
 {
     public class SanaWebShopDbContext : DbContext, ISanaWebShopDbContext
     {
@@ -12,7 +12,6 @@ namespace SanaWebShop.Persistence
         public DbSet<Order> Orders { get; set; }
         public DbSet<ProductsPerOrder> ProductsPerOrders { get; set; }
 
-        
         public SanaWebShopDbContext() : base("SanaWebShopDbConnection")
         {
             

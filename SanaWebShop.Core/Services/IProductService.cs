@@ -6,5 +6,6 @@ namespace SanaWebShop.Core.Services
     public interface IProductService
     {
         List<Product> GetAllProducts();
+        bool CreateProduct(Product product);
     }
 }

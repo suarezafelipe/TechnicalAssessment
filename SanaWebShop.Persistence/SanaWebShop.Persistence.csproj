@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISanaWebShopDbContext.cs" />
+    <Compile Include="ApplicationDbContext\ISanaWebShopDbContext.cs" />
     <Compile Include="Migrations\201709112055527_ModelCreation.cs" />
     <Compile Include="Migrations\201709112055527_ModelCreation.Designer.cs">
       <DependentUpon>201709112055527_ModelCreation.cs</DependentUpon>
@@ -59,7 +59,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
-    <Compile Include="SanaWebShopDbContext.cs" />
+    <Compile Include="ApplicationDbContext\SanaWebShopDbContext.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

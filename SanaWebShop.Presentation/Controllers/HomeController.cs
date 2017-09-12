@@ -4,6 +4,7 @@ using SanaWebShop.Core.Models;
 using SanaWebShop.Core.RepositoriesInterfaces;
 using SanaWebShop.Core.Services;
 using SanaWebShop.Persistence;
+using SanaWebShop.Presentation.ViewModels;
 
 namespace SanaWebShop.Presentation.Controllers
 {
@@ -21,6 +22,25 @@ namespace SanaWebShop.Presentation.Controllers
             List<Product> products = _productService.GetAllProducts();
             return View(products);
         }
-        
+
+        [HttpGet]
+        public ActionResult CreateProduct()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateProduct(ProductViewModel product)
+        {
+            var success = _productService.CreateProduct(new Product
+            {
+                Price = product.Price,
+                ProductNumber = product.ProductNumber,
+                Title = product.Name
+            });
+            
+            return View();
+        }
+
     }
 }

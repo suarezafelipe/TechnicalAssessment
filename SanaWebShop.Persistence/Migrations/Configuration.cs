@@ -1,3 +1,5 @@
+using SanaWebShop.Persistence.ApplicationDbContext;
+
 namespace SanaWebShop.Persistence.Migrations
 {
     using System.Data.Entity.Migrations;

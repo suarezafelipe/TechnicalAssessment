@@ -6,16 +6,30 @@ namespace SanaWebShop.Core.Services
 {
     public class ProductService : IProductService
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository productRepository)
+        public ProductService(IUnitOfWork unitOfWork)
         {
-            _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public List<Product> GetAllProducts()
         {
-            return _productRepository.GetAllProducts();
+            return _unitOfWork.Products.GetAllProducts();
+        }
+
+        public bool CreateProduct(Product product)
+        {
+            bool backEndValidations = true;
+
+            if (!backEndValidations)
+                return false;
+
+            _unitOfWork.Products.CreateProduct(product);
+            _unitOfWork.Complete();
+
+            return true;
+
         }
     }
 }

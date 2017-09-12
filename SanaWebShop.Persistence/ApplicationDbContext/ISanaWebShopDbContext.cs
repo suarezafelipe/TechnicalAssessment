@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using SanaWebShop.Core.Models;
 
-namespace SanaWebShop.Persistence
+namespace SanaWebShop.Persistence.ApplicationDbContext
 {
     public interface ISanaWebShopDbContext
     {
