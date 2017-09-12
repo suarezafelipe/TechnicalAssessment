@@ -1,0 +1,16 @@
+﻿@model List<SanaWebShop.Core.Models.Product>
+
+    @{
+        ViewBag.Title = "List of products";
+    }
+
+    <h2>Product Listing</h2>
+
+    <ul>
+        @foreach (var product in Model)
+        {
+            <li>Product #: @product.ProductNumber</li>
+            <li>Name: @product.Title</li>
+            <li>Price: @product.Price </li>
+        }
+    </ul>

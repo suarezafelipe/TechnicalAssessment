@@ -6,15 +6,13 @@
 
 <h2>Product Creation</h2>
 
-
-
-@using (Html.BeginForm("CreateProduct", "Home", FormMethod.Post))
+@using (Html.BeginForm("Create", "Product", FormMethod.Post))
 {
     <p class="alert alert-info">All fields are <strong>required</strong>.</p>
     @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", autofocus = "autofocus" })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", autofocus = "autofocus", placeholder = "Lenovo Thinkpad E570" })
         @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div class="form-group">
