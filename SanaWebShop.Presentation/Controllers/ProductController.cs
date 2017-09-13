@@ -27,6 +27,7 @@ namespace SanaWebShop.Presentation.Controllers
         [HttpPost]
         public ActionResult Create(ProductViewModel product)
         {
+            string response = "";
             bool success = _productService.CreateProduct(new Product
             {
                 Price = product.Price,
@@ -34,13 +35,11 @@ namespace SanaWebShop.Presentation.Controllers
                 Title = product.Name
             });
 
-            if (!success)
-            {
-                var error =
-                    "There was an error trying to create the product. Please complete all the fields and make sure the Product Number is not repeated";
-            }
+            response = success 
+                ? "Product created successfully!" 
+                : "There was an error trying to create the product. Please complete all the fields";
 
-            return View();
+            return Json(new { Message = response});
         }
 
     }

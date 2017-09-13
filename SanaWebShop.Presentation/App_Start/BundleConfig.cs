@@ -13,9 +13,6 @@ namespace SanaWebShop.Presentation
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/appScripts").Include(
-                "~/Scripts/app/controllers/productsController.js"));
-
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -28,6 +25,14 @@ namespace SanaWebShop.Presentation
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // CUSTOM BUNDLES
+            bundles.Add(new ScriptBundle("~/bundles/appScripts").Include(
+                "~/Scripts/app/layout.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/productScripts").Include(
+                "~/Scripts/app/services/productService.js",
+                "~/Scripts/app/controllers/productController.js"));
         }
     }
 }
