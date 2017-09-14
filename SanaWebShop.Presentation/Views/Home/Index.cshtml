@@ -2,6 +2,60 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>Welcome!</h2>
+<div class="container">
+    <br />
+    <h1 class="text-center">Technical Assessment</h1>
 
-<p>Hello world</p>
+    <div class="page-header">
+        <h2>Overview and explanations <small>Author: Andrés Felipe Suárez R.</small>   <a href="https://www.linkedin.com/in/suarezafelipe/" target="_blank">LinkedIn</a>
+        </h2>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <strong>1. Architecture:</strong>
+            <p></p>
+            <p>I used a <i>"Clean Architecture"</i> approach, understanding for it as: The Core of the application (also known as Business Layer) must be independent from external libraries, tools and frameworks. Presentation and Persistence layers must depend on the Business Layer, not the other way around.</p>
+            <br />
+            <strong>2. Core Layer:</strong>
+            <p></p>
+            <p>To make the persistence layer dependent on the core layer and not the other way around, I used the <i>Inversion of Control</i> principle with the help of the Unit of Work and Repository Patterns. In the core layer you can find only <strong>interfaces</strong> to the Persistence Layer so that the actual implementations are completely decoupled.</p>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <img src="~/Content/architecture.PNG" height="300px;" />
+        </div>
+    </div>
+    <hr />
+    
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <strong>3. Persistence Layer:</strong>
+            <p></p>
+            <p>For the persistent data I used a SQL Server Relational Database created via migrations with the <i>Code-First</i> paradigm of Entity Framework.</p>
+            <br />
+            <strong>4. Presentation Layer:</strong>
+            <p></p>
+            <p>I didn't use any front-end framework or minification-bundling (mostly because of time), but I wrote my javascript with a strong <i>separation of concerns</i> mindset, leaving a file only for server calls (productService.js) and another to handle the UI events and to call the functions of the service (productController.js)
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <strong>5. Implementation of the memory storage:</strong>
+            <p></p>
+            <p>In a real world scenario I'd have made sure of asking: "what is the business case to have a memory storage? <strong>does it need to be synchronized with the database?</strong> should it be saved on the browser or reset after every session?" </p>
+            <p>Having had experience developing e-commerce, I thought the memory storage was to test how to save shopping cart data client-side and not in the server. This with the goal of not losing the shopping cart when the user has not yet signed in and even if he turns off the computer and comes back later. For this reasons I implemented a <i>localStorage</i> approach to save data in the client side.</p>
+        </div>
+    </div>
+    <hr />
+        
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <strong>6. Tests:</strong>
+            <p></p>
+            <p>I only implemented a couple of tests using the Moq and FluentAssertions libraries. In my work experience I still haven't experienced with a full TDD approach, but I consider Unit Testing and Integration testing important (Integration tests are missing on this project).</p>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <strong>7. Utilites:</strong>
+            <p></p>
+            <p>Here I only have the implementation of the <strong>Dependency Injection</strong> library that I chose which was Autofac. Here shared functions and variables can also be added when the project grows.</p>
+        </div>
+    </div>
+</div>

@@ -8,9 +8,6 @@
                 success: function(response) {
                     alert(response.Message);
                     cleanFields();
-                },
-                error: function() {
-                    alert("A server error ocurred. Please contact support");
                 }
         });
 
