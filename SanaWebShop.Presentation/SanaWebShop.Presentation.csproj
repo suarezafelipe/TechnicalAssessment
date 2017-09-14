@@ -169,6 +169,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\controllers\listController.js" />
     <Content Include="Scripts\app\controllers\productController.js" />
     <Content Include="Scripts\app\layout.js" />
     <Content Include="Scripts\app\services\productService.js" />
@@ -202,6 +203,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Product\ListMemory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

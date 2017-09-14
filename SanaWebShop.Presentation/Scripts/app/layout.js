@@ -29,6 +29,17 @@
 
         $("#StorageMethod").val(storage); // The ViewBag must be updated here so that it updates both on load and on update
     }
+
+
+    $("#ListProductsMenu").click(function() {
+        if (storage === "Memory") {
+            window.location = getUrlListProductMemory();
+        } else {
+            window.location = getUrlListProduct();
+        }
+
+    });
+
 });
 
 

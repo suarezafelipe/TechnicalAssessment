@@ -1,0 +1,31 @@
+﻿
+
+@{
+    ViewBag.Title = "List of products";
+}
+
+<h2>List of Products - (From Memory)</h2> <a href="#" id="ClearMemory" class="btn btn-danger">Clear Memory</a>
+
+<div id="ListProducts">
+</div>
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/listScripts")
+
+    <script>
+        $("#ChangeStorage").click(function () {
+            // This is evaluated before the change takes place
+            if ($("#StorageMethod").val() === "Memory") {
+                window.location = '@Url.Action("List", "Product")';
+            } else {
+                window.location = '@Url.Action("ListMemory", "Product")';
+            }
+        });
+    </script>
+}
+
+
+        
+    

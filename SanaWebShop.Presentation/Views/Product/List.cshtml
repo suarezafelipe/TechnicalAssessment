@@ -4,13 +4,40 @@
         ViewBag.Title = "List of products";
     }
 
-    <h2>Product Listing</h2>
+    <h2>List of Products - (From Database)</h2>
 
-    <ul>
+<div id="ListProducts">
+    <table class="table table-striped" id="DatabaseTable">
+        <tr>
+            <th>Product Number</th>
+            <th>Title</th>
+            <th>Price</th>
+        </tr>
+
         @foreach (var product in Model)
         {
-            <li>Product #: @product.ProductNumber</li>
-            <li>Name: @product.Title</li>
-            <li>Price: @product.Price </li>
+            <tr>
+                <td>@product.ProductNumber</td>
+                <td>@product.Title</td>
+                <td>@product.Price</td>
+            </tr>
         }
-    </ul>
+    </table>
+</div>
+
+@section scripts
+{
+    <script>
+        $("#ChangeStorage").click(function () {
+            // This is evaluated before the change takes place
+            if ($("#StorageMethod").val() === "Memory") {
+                window.location = '@Url.Action("List", "Product")';
+            } else {
+                window.location = '@Url.Action("ListMemory", "Product")';
+            }
+        });
+    </script>
+}
+
+        
+    

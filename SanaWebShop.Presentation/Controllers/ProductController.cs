@@ -15,11 +15,16 @@ namespace SanaWebShop.Presentation.Controllers
             _productService = productService;
         }
 
+        
         public ActionResult List()
         {
-            List<Product> products = _productService.GetAllProducts();
-            return View(products);
+            
+                List<Product> products = _productService.GetAllProducts();
+                return View(products);
+            
         }
+
+        public ActionResult ListMemory() => View();
 
         [HttpGet]
         public ActionResult Create() => View();
@@ -27,7 +32,6 @@ namespace SanaWebShop.Presentation.Controllers
         [HttpPost]
         public ActionResult Create(ProductViewModel product)
         {
-            string response = "";
             bool success = _productService.CreateProduct(new Product
             {
                 Price = product.Price,
@@ -35,7 +39,7 @@ namespace SanaWebShop.Presentation.Controllers
                 Title = product.Name
             });
 
-            response = success 
+            var response = success 
                 ? "Product created successfully!" 
                 : "There was an error trying to create the product. Please complete all the fields";
 

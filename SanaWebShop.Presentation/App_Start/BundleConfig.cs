@@ -33,6 +33,9 @@ namespace SanaWebShop.Presentation
             bundles.Add(new ScriptBundle("~/bundles/productScripts").Include(
                 "~/Scripts/app/services/productService.js",
                 "~/Scripts/app/controllers/productController.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/listScripts").Include(
+                "~/Scripts/app/controllers/listController.js"));
         }
     }
 }
